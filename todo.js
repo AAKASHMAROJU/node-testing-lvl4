@@ -10,9 +10,9 @@ const todoList = () => {
   const overdue = () => {
     let dueyes = [];
     for (let x in todos.all) {
-      if (todos.all[x].dueDate == yesterday) {
+      if (todos.all[x].dueDate <= yesterday) {
         dueyes.push({
-          d: yesterday,
+          d: todos.all[x].dueDate,
           t: todos.all[x].title,
           c: todos.all[x].completed,
         });
@@ -38,9 +38,9 @@ const todoList = () => {
   const dueLater = () => {
     let duetom = [];
     for (let x in todos.all) {
-      if (todos.all[x].dueDate == tomorrow) {
+      if (todos.all[x].dueDate >= tomorrow) {
         duetom.push({
-          d: tomorrow,
+          d: todos.all[x].dueDate,
           t: todos.all[x].title,
           c: todos.all[x].completed,
         });
